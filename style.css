@@ -1,0 +1,139 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+:root {
+    --primary-color: #000c35;
+    --secondary-color: #ccc;
+
+    --disabled-color: #333;
+    --player1-color: #f00;
+    --player2-color: #00f;
+    --draw-color: #ff0;
+
+    --size: min(calc(100vh / 5), calc(100vw / 4));
+}
+
+* {
+    font-size: calc(var(--size) / 5);
+}
+
+body {
+    background-color: var(--primary-color);
+    color: var(--secondary-color);
+    font-family: 'Roboto', sans-serif;
+
+    /* align to center */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    flex-direction: column;
+}
+
+main {
+    width: calc(var(--size) * 3);
+    height: fit-content;
+}
+
+.players {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-gap: 10px;
+    width: 100%;
+    margin-bottom: 10px;
+}
+
+.player {
+    width: 100%;
+    padding: 5px;
+    margin: 5px;
+    border-radius: 15px;
+    text-align: center;
+}
+
+#player1 {
+    color: var(--player1-color);
+    border: 2px solid var(--player1-color);
+}
+
+#player2 {
+    color: var(--player2-color);
+    border: 2px solid var(--player2-color);
+}
+
+#player1.disabled, #player2.disabled {
+    color: var(--disabled-color);
+    border: 2px solid var(--disabled-color);
+}
+
+.game, .row, .collumn {
+    font-size: calc(var(--size) / 2);
+}
+
+.game {
+    margin-bottom: 10px;
+}
+
+.game .row {
+    display: flex;
+    height: var(--size);
+    width: calc(var(--size) * 3);
+    border-bottom: 2px solid var(--secondary-color);
+}
+.game .collumn {
+    height: 100%;
+    width: var(--size);
+    border-right: 2px solid var(--secondary-color);
+    /* text-align: center; */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.game .collumn.player1{
+    color: var(--player1-color);
+}
+
+.game .collumn.player2{
+    color: var(--player2-color);
+}
+
+.game .row:last-child {
+    border: none;
+}
+
+.game .collumn:last-child {
+    border: none;
+}
+
+.winner {
+    color: var(--secondary-color);
+    /* font-size: 2rem; */
+    margin-bottom: 10px;
+    text-align: center;
+}
+
+.winner.player1 {
+    color: var(--player1-color);
+}
+
+.winner.player2 {
+    color: var(--player2-color);
+}
+
+.winner.draw {
+    color: var(--draw-color);
+}
+
+button {
+    width: 100%;
+    background-color: var(--secondary-color);
+    color: var(--primary-color);
+    border: 2px solid var(--primary-color);
+    border-radius: 15px;
+    padding: 5px 10px;
+    cursor: pointer;
+}
