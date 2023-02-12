@@ -71,6 +71,7 @@ main {
 
 .game, .row, .collumn {
     font-size: calc(var(--size) / 2);
+    position: relative;
 }
 
 .game {
@@ -136,4 +137,86 @@ button {
     border-radius: 15px;
     padding: 5px 10px;
     cursor: pointer;
+}
+
+.game .line {
+    width: 0;
+    height: 3px;
+    position: absolute;
+    display: none;
+    z-index: 5;
+
+    transition: width 0.5s ease-in-out;
+}
+
+.game .line.player1 {
+    background-color: var(--player1-color);
+}
+
+.game .line.player2 {
+    background-color: var(--player2-color);
+}
+
+.game .line.diagonal1 {
+    display: block;
+    width: calc(var(--size) * 4.24);
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%) rotate(45deg);
+}
+
+.game .line.diagonal2 {
+    display: block;
+    width: calc(var(--size) * 4.24);
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%) rotate(-45deg);
+}
+
+.game .line.horizontal1 {
+    display: block;
+    width: calc(var(--size) * 3);
+    top: calc(50% - var(--size));
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+.game .line.horizontal2 {
+    display: block;
+    width: calc(var(--size) * 3);
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+.game .line.horizontal3 {
+    display: block;
+    width: calc(var(--size) * 3);
+    top: calc(50% + var(--size));
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+.game .line.vertical1 {
+    display: block;
+    width: calc(var(--size) * 3);
+    top: 50%;
+    left: calc(50% - var(--size));
+    transform: translate(-50%, -50%) rotate(90deg);
+}
+
+.game .line.vertical2 {
+    display: block;
+    width: calc(var(--size) * 3);
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%) rotate(90deg);
+}
+
+.game .line.vertical3 {
+    display: block;
+    width: calc(var(--size) * 3);
+    top: 50%;
+    left: calc(50% + var(--size));
+    transform: translate(-50%, -50%) rotate(90deg);
 }
